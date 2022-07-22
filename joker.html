@@ -74,13 +74,50 @@
 <div class="waktu">
 		<p>Jadwal Gacor:</p>
 		<div class="display-date">
-			<span id="day">day</span>,
-			<span id="daynum">00</span>
-			<span id="month">month</span>
-			<span id="year">0000</span>
+<span id="showtime" class="hd-time"></span>
 		</div>
-		<div class="display-time"></div>
-		<script src="js/waktu.js"></script>
+<script>
+    function startTime(){
+        d=new Date(); //创建一个Date对象 
+        localTime = d.getTime(); 
+        localOffset=d.getTimezoneOffset()*60000; //获得当地时间偏移的毫秒数 
+        utc = localTime + localOffset; //utc即GMT时间 
+        offset = 7; //以夏威夷时间为例，东10区 
+        md = utc + (3600000*offset); 
+        
+        var today=new Date(md);
+        var years=today.getFullYear();
+        var months=today.getMonth();
+        var d=today.getDate()
+        var h=today.getHours()
+        var m=today.getMinutes()
+        var s=today.getSeconds()
+        // add a zero in front of numbers<10
+        months=months+1
+        months=checkTime(months)
+        d=checkTime(d)
+        m=checkTime(m)
+        s=checkTime(s)
+        var weekday=new Array(7)
+        weekday[0]="Minggu"
+        weekday[1]="Senin"
+        weekday[2]="Selasa"
+        weekday[3]="Rabu"
+        weekday[4]="Kamis"
+        weekday[5]="Jumat"
+        weekday[6]="Sabtu"
+        var w=weekday[today.getDay()]
+        $("#showtime").html(" "+d+"-"+months+"-"+years+" "+h+":"+m+":"+s);
+        t=setTimeout('startTime()',500)
+    }
+    function checkTime(i){
+        if (i<10)
+        {i="0" + i}
+        return i
+    }
+    setInterval(function(){startTime();},200);
+</script>
+
 	</div>
 
 <div class="card">
