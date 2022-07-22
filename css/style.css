@@ -228,8 +228,8 @@ text-align: center;
 .seven h1:after,.seven h1:before {
     content: " ";
     display: block;
-    border-bottom: 1px solid #3E5B0B;
-    border-top: 1px solid #3E5B0B;
+    border-bottom: 1px solid #262626;
+    border-top: 1px solid #262626;
     height: 5px;
   background-color:#f8f8f8;
 }
@@ -278,10 +278,10 @@ text-align: center;
 .nine h1 span:after,.nine h1 span:before {
     content: " ";
     display: block;
-    border-bottom: 1px solid #3E5B0B;
-    border-top: 1px solid #3E5B0B;
+    border-bottom: 1px solid #262626;
+    border-top: 1px solid #262626;
     height: 5px;
-  background-color:#3E5B0B;
+  background-color:#262626;
 }
 
 
